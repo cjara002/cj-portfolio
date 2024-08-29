@@ -1,17 +1,12 @@
 interface HeroBannerProps {
-  image: string,
   heroBannerText : JSX.Element
 }
 
-const HeroBanner: React.FC<HeroBannerProps> = ({image, heroBannerText}) => {
+const HeroBanner: React.FC<HeroBannerProps> = ({heroBannerText}) => {
   return (
     <div className="min-h-screen">
       <div
-        className="relative h-full bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${image})`,
-        }}
-        id="heroBGPhoto"
+        className="relative h-full bg-cover bg-center bg-desertLandscape"
       >
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center">

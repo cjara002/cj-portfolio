@@ -7,7 +7,7 @@ import HeroBanner from "../HeroBanner/HeroBanner.tsx";
 // import TechUsed from "../TechUsed/TechUsed";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
-import { IMAGES } from "../../constants/Theme.ts";
+import AboutMe from "../AboutMe/AboutMe.tsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("1");
@@ -19,11 +19,11 @@ const Home = () => {
   const HeroBannerText = (
     <div className="col text-left mt-[10%] md:mt-[20%] mb-[20%] md:mb-[40%] text-white text-shadow-xl">
       <div className="inline-block align-top text-[16px] leading-[28px]">
-        <h3 className="font-montserrat text-[1.2rem] md:text-[.9rem] uppercase animate-fadein text-shadow-lg">
+        <h3 className="font-montserrat text-[2rem] md:text-[1.2rem] uppercase animate-fadein text-shadow-lg">
           Explore My Work
         </h3>
       </div>
-      <h1 className="font-montserrat text-[5rem] md:text-[2rem] animate-fadein">
+      <h1 className="font-montserrat text-[8rem] md:text-[5rem] animate-fadein">
         Crafting Code with Passion
       </h1>
     </div>
@@ -32,11 +32,10 @@ const Home = () => {
   return (
     <>
       <HeroBanner
-        image={IMAGES.desertLandscape}
         heroBannerText={HeroBannerText}
       />
 
-      {/* <AboutMe /> */}
+      <AboutMe /> 
 
       {/* <TechUsed /> */}
 
