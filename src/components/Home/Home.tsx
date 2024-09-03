@@ -8,6 +8,7 @@ import HeroBanner from "../HeroBanner/HeroBanner.tsx";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
 import AboutMe from "../AboutMe/AboutMe.tsx";
+import TechUsed from "../TechUsed/TechUsed.tsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("1");
@@ -37,7 +38,7 @@ const Home = () => {
 
       <AboutMe /> 
 
-      {/* <TechUsed /> */}
+      <TechUsed />
 
       <div
         className="myProjects"

@@ -9,15 +9,6 @@ const AboutMe: React.FC = () => {
         <div className="flex flex-wrap">
           <div className="lg:w-1/2 sm:w-full mb-8">
             <h1 className="mb-3">About Me</h1>
-            {/* <div className="text-center">
-              <h1>
-                I AM{" "}
-                <span
-                  id="aboutReel"
-                  className="text-white animate-spin"
-                ></span>
-              </h1>
-            </div> */}
             <p className="text-white text-lg mb-6">
               <span className="font-bold text-white text-xl">I</span> am a
               full-stack developer who constantly challenges myself both in work
