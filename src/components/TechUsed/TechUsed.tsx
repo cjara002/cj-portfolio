@@ -15,13 +15,9 @@ const TechUsed: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen mt-20 pt-20"> 
+    <div className="min-h-screen"> 
       <div
-        className="techUsed bg-cover bg-center h-full relative"
-        style={{
-        //   backgroundImage: `url(${images.londonNight})`,
-          color: `white`,
-        }}
+        className="techUsed bg-desertLandscapeAtNight bg-cover bg-center h-full relative"
       >
         <div className="container mx-auto">
           <h1 className="mb-5 text-4xl font-bold">Skills</h1>

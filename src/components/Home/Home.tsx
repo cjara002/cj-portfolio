@@ -1,14 +1,15 @@
 import { useState } from "react";
-// import AboutMe from "../AboutMe/AboutMe";
 // import ContactForm from "../ContactMe/ContactForm";
 import HeroBanner from "../HeroBanner/HeroBanner.tsx";
 // import projects from "../Projects/listOfProject";
 // import ProjectWithTabs from "../Projects/Projects2/ProjectsWithTabs";
-// import TechUsed from "../TechUsed/TechUsed";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
 import AboutMe from "../AboutMe/AboutMe.tsx";
 import TechUsed from "../TechUsed/TechUsed.tsx";
+import projects from "../../helper/listOfProject.tsx";
+import ProjectsWithTabs from "../Projects/ProjectsWithTabs.tsx";
+import ContactForm from "../Contact/ContactForm.tsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("1");
@@ -32,23 +33,14 @@ const Home = () => {
 
   return (
     <>
-      <HeroBanner
-        heroBannerText={HeroBannerText}
-      />
+      <HeroBanner heroBannerText={HeroBannerText} />
 
-      <AboutMe /> 
+      <AboutMe />
 
       <TechUsed />
 
-      <div
-        className="myProjects"
-        id="myProjects"
-        style={{
-          backgroundImage: `url(https://bit.ly/2yJf9Ba})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="container">
+      <div className="bg-desertBackGroundPattern py-10 bg-cover bg-center">
+        <div className="container mx-auto">
           <Nav tabs className="mb-5">
             <NavItem>
               <NavLink
@@ -71,17 +63,16 @@ const Home = () => {
               </NavLink>
             </NavItem>
           </Nav>
-          {/* {projects.map((project) => (
-            <ProjectWithTabs
+          {projects.map((project) => (
+            <ProjectsWithTabs
               project={project}
               activeTab={activeTab}
               key={project.id}
             />
-          ))} */}
+          ))}
         </div>
       </div>
-
-      {/* <ContactForm /> */}
+      <ContactForm />
     </>
   );
 };

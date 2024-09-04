@@ -16,6 +16,9 @@ module.exports = {
       backgroundImage: {
         'desertLandscape': "url('./assets/img/road.jpg')",
         'darkLizards': "url('./assets/img/darkLizards.png')",
+        'desertLandscapeAtNight': "url('./assets/img/nightDesertSky.jpg')",
+        'desertBackGroundPattern': "url('./assets/img/DesertBackgroundPattern.png')",
+        'cactus' : "url('./assets/img/cactus/png')"
       },
       // keyframes: {
       //   spin: {
