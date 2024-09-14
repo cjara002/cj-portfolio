@@ -1,8 +1,5 @@
 import { useState } from "react";
-// import ContactForm from "../ContactMe/ContactForm";
 import HeroBanner from "../HeroBanner/HeroBanner.tsx";
-// import projects from "../Projects/listOfProject";
-// import ProjectWithTabs from "../Projects/Projects2/ProjectsWithTabs";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
 import AboutMe from "../AboutMe/AboutMe.tsx";

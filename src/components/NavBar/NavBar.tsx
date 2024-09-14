@@ -1,43 +1,62 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import NavButton from "../Button/NavButton";
 import urls from "../../helper/Urls";
 import { Link } from "react-router-dom";
+import SocialMediaButton from "../Button/SocialMediaButton";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-primary bg-opacity-90 w-full h-16 sticky top-0 z-20">
+    <nav
+      className={`fixed top-0 w-full z-20 transition-all duration-300 w-full h-16 ${
+        scrolled ? "bg-black text-white" : "bg-transparent text-white"
+      }`}
+    >
       <div className="container mx-auto flex justify-between items-center h-full px-4">
-        <div className="flex space-x-4">
-          <ul className="flex items-center space-x-4">
-            <li>
-              <NavButton
-                href={urls.github}
-                title="GitHub"
-                textSize="text-lg sm:text-sm text-white"
-                iconClass="fab fa-github"
-              />
-            </li>
-            <li>
-              <NavButton
-                href={urls.linkedin}
-                title="LinkedIn"
-                textSize="text-lg sm:text-sm text-white"
-                iconClass="fab fa-linkedin"
-              />
-            </li>
-          </ul>
-        </div>
+          <div className="flex h-8 w-32">
+            <SocialMediaButton
+              href={urls.github}
+              iconClass="fab fa-github"
+              hoverWithColor={"hover:bg-black"}
+            />
+            <SocialMediaButton
+              href={urls.linkedin}
+              iconClass="fab fa-linkedin"
+              hoverWithColor={"hover:bg-[#0a66c2]"}
+            />
+          </div>
 
-        <button 
-          className="text-white lg:hidden" 
+        <button
+          className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           <i className="fas fa-bars"></i>
         </button>
 
-        <div className={`lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 ${isOpen ? 'block' : 'hidden'} lg:block`}>
+        <div
+          className={`lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 ${
+            isOpen ? "block" : "hidden"
+          } lg:block`}
+        >
           <ul className="flex flex-col lg:flex-row lg:space-x-4 items-center">
             <li>
               <Link to="/" className="text-lg sm:text-sm text-white">
