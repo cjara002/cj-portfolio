@@ -27,11 +27,11 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-20 transition-all duration-300 w-full h-16 ${
-        scrolled ? "bg-black text-white" : "bg-transparent text-white"
+      className={`fixed top-0 w-full z-20 transition-all duration-300 h-16 text-white overflow-x-hidden ${
+        scrolled ? "bg-black" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center h-full px-4">
+      <div className="mx-auto flex justify-between items-center h-full px-4 overflow-x-hidden">
           <div className="flex h-8 w-32">
             <SocialMediaButton
               href={urls.github}
@@ -49,24 +49,22 @@ const NavBar = () => {
           className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <i className="fas fa-bars"></i>
+          <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
         </button>
 
         <div
-          className={`lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 ${
-            isOpen ? "block" : "hidden"
-          } lg:block`}
+          className={`z-20 lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 space-y-2 lg:space-y-0 ${isOpen ? "block" : "hidden"} lg:block`}
         >
           <ul className="flex flex-col lg:flex-row lg:space-x-4 items-center">
             <li>
-              <Link to="/" className="text-lg sm:text-sm text-white">
-                <i className="fa-1x mr-2 fas fa-home"></i>
+              <Link to="/" className="text-lg sm:text-sm text-white hover:text-yellow-500 transition duration-300 ease-in-out">
+                <i className="fa-1x mr-2 fas fa-home hover:text-yellow-500 transition duration-300 ease-in-out"></i>
                 Home
               </Link>
             </li>
             <li>
               <NavButton
-                href={urls.about}
+                href="#about-me"
                 textSize="text-lg sm:text-sm text-white"
                 text="About Me"
                 iconClass="fa-1x mr-2 fas fa-laptop"
@@ -74,7 +72,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavButton
-                href={urls.myProjects}
+                href="#projects"
                 textSize="text-lg sm:text-sm text-white"
                 text="Web/Mobile App"
                 title="Web/Mobile App"
@@ -83,7 +81,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavButton
-                href={urls.formBorder}
+                href="#contact-me"
                 textSize="text-lg sm:text-sm text-white"
                 text="Let's Connect"
                 title="Let's Connect"

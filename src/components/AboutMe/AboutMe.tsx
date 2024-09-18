@@ -4,7 +4,7 @@ import pdf from "../../helper/CarlosJaraResume2024v.5.pdf";
 
 const AboutMe: React.FC = () => {
   return (
-    <div className="pt-20 bg-darkLizards text-gray-400">
+    <div className="pt-20 bg-darkLizards text-gray-400"  id="about-me">
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="lg:w-1/2 sm:w-full mb-8">

@@ -6,11 +6,11 @@ return (
                 style={{ cursor: "pointer" }}
                 data-toggle="tooltip"
                 title={props.title}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={props.textSize}
+                // target="_blank"
+                // rel="noopener noreferrer"
+                className={`${props.textSize} hover:text-yellow-500 transition duration-300 ease-in-out`}
               >
-                <i className={props.iconClass}></i> {props.text}
+                <i className={`${props.iconClass} hover:scale-110 transition duration-300 ease-in-out`}></i> {props.text}
               </a>            
 )
 }

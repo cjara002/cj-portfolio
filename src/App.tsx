@@ -1,5 +1,4 @@
 import Home from "./components/Home/Home";
-import NavBar from "../src/components/NavBar/NavBar";
 // import ProjectDetails from "../Projects/Projects2/ProjectDetails";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import "./Portfolio.css";
@@ -14,7 +13,6 @@ const App = () => {
   return (
     <>
       <Router>
-        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/details/:id" element={<ProjectDetails />} />

@@ -7,6 +7,7 @@ import TechUsed from "../TechUsed/TechUsed.tsx";
 import projects from "../../helper/listOfProject.tsx";
 import ProjectsWithTabs from "../Projects/ProjectsWithTabs.tsx";
 import ContactForm from "../Contact/ContactForm.tsx";
+import NavBar from "../NavBar/NavBar.tsx";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("1");
@@ -16,27 +17,38 @@ const Home = () => {
   };
 
   const HeroBannerText = (
-    <div className="col text-left mt-[10%] md:mt-[20%] mb-[20%] md:mb-[40%] text-white text-shadow-xl">
-      <div className="inline-block align-top text-[16px] leading-[28px]">
-        <h3 className="font-montserrat text-[2rem] md:text-[1.2rem] uppercase animate-fadein text-shadow-lg">
-          Explore My Work
-        </h3>
-      </div>
-      <h1 className="font-montserrat text-[8rem] md:text-[5rem] animate-fadein">
-        Crafting Code with Passion
-      </h1>
+  <div className="col text-left mt-[10%] md:mt-[20%] mb-[20%] md:mb-[40%] text-white text-shadow-xl">
+    <div className="inline-block align-top text-[16px] leading-[28px]">
+      <h3 className="font-montserrat text-[2rem] sm:text-[1rem] md:text-[1.5rem] lg:text-[2rem] uppercase animate-fadein text-shadow-lg">
+        Explore My Work
+      </h3>
     </div>
-  );
+    <h1 className="font-montserrat text-[5rem] sm:text-[2.5rem] md:text-[4.5rem] lg:text-[6.5rem] animate-fadein">
+      Crafting Code with Passion
+    </h1>
+    <div className="mt-4">
+      <a
+        href="#work"
+        className="inline-block px-6 py-3 bg-blue-500 text-white font-bold rounded-full hover:bg-blue-600 transition-all duration-300"
+      >
+        View My Work
+      </a>
+    </div>
+  </div>
+);
+
 
   return (
-    <>
+    <div className="container overflow-x-hidden">
+      <NavBar />
+
       <HeroBanner heroBannerText={HeroBannerText} />
 
       <AboutMe />
 
       <TechUsed />
 
-      <div className="bg-desertBackGroundPattern py-10 bg-cover bg-center">
+      <div className="bg-desertBackGroundPattern py-10 bg-cover bg-center" id="projects">
         <div className="container mx-auto">
           <Nav tabs className="mb-5">
             <NavItem>
@@ -70,7 +82,7 @@ const Home = () => {
         </div>
       </div>
       <ContactForm />
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ interface HeroBannerProps {
 
 const HeroBanner: React.FC<HeroBannerProps> = ({heroBannerText}) => {
   return (
-    <div className="min-h-screen">
+    <div>
       <div
         className="relative h-full bg-cover bg-center bg-desertLandscape"
       >
