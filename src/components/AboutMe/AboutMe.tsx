@@ -11,7 +11,7 @@ const AboutMe: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex flex-wrap">
           <div className="lg:w-1/2 sm:w-full mb-8">
-            <h1 className="mb-3 text-xl text-yellow-500">About Me</h1>
+            <h1 className="mb-3 text-4xl text-yellow-500 font-bold">About Me</h1>
             <p className="text-white text-lg mb-6">
               <span className="font-bold text-yellow-500 text-xl">I</span> am a
               full-stack developer who constantly challenges myself both in work
