@@ -12,7 +12,8 @@ import NavBar from "../NavBar/NavBar.tsx";
 const Home = () => {
   const [activeTab, setActiveTab] = useState("1");
 
-  const toggle = (tab: any) => {
+  const toggle = (tab: string) => {
+    console.log(`Tab clicked: ${tab}`);
     if (activeTab !== tab) setActiveTab(tab);
   };
 
@@ -61,26 +62,22 @@ const Home = () => {
         className="bg-desertBackGroundPattern py-10 bg-cover bg-center"
         id="projects"
       >
-        <div className="container mx-auto">
+        <div className="container mx-auto px-8">
           <Nav tabs className="mb-5">
             <NavItem>
               <NavLink
                 className={classnames({ active: activeTab === "1" })}
-                onClick={() => {
-                  toggle("1");
-                }}
+                onClick={() => toggle("1")}
               >
-                <p>Web</p>
+                Web
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink
                 className={classnames({ active: activeTab === "2" })}
-                onClick={() => {
-                  toggle("2");
-                }}
+                onClick={() => toggle("2")}
               >
-                <p>Mobile-First</p>
+                Mobile-First
               </NavLink>
             </NavItem>
           </Nav>
