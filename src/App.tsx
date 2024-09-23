@@ -1,8 +1,5 @@
 import Home from "./components/Home/Home";
-// import ProjectDetails from "../Projects/Projects2/ProjectDetails";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import "./Portfolio.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 // import images from "../Helper/Images.js";
 // import SuccessScreen from "../Screens/success"
 // import ErrorScreen from "../Screens/error"
@@ -15,9 +12,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/details/:id" element={<ProjectDetails />} />
-          <Route path="/success" element={<SuccessScreen />} />
-          <Route path="/error" element={<ErrorScreen />} /> */}
+          {/* <Route path="/success" element={<SuccessScreen />} />
+          <Route path="/error" element={<ErrorScreen />} />  */}
         </Routes>
         <footer className="bg-primary bg-opacity-90">
           <div className="py-4 border-t border-gray-200">

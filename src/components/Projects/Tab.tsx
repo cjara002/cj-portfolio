@@ -18,7 +18,7 @@ const Tab = ({ project }: TabProps) => {
   return (
     <>
     <TabPane tabId={project.type === "web" ? "1" : "2"}>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mb-4">
         <div className="w-full">
           <div className="card bg-white shadow-lg p-6">
             <div className="flex flex-wrap">
@@ -39,7 +39,8 @@ const Tab = ({ project }: TabProps) => {
                   <p className="mt-2">{project.description}</p>
                   <div className="text-center mt-4">
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      <Link to={`/details/${project.id}`}>View More</Link>
+                      {/* <Link to={`/details/${project.id}`}>View More</Link> */}
+                      <Link to={`/`}>View Demo</Link>
                     </button>
                   </div>
                 </div>

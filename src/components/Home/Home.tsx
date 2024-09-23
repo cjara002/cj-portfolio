@@ -1,21 +1,24 @@
-import { useState } from "react";
+// import { useState } from "react";
 import HeroBanner from "../HeroBanner/HeroBanner.tsx";
-import { Nav, NavItem, NavLink } from "reactstrap";
-import classnames from "classnames";
+// import { Nav, NavItem, NavLink } from "reactstrap";
+// import classnames from "classnames";
 import AboutMe from "../AboutMe/AboutMe.tsx";
 import TechUsed from "../TechUsed/TechUsed.tsx";
 import projects from "../../helper/listOfProject.tsx";
-import ProjectsWithTabs from "../Projects/ProjectsWithTabs.tsx";
+// import ProjectsWithTabs from "../Projects/ProjectsWithTabs.tsx";
 import ContactForm from "../Contact/ContactForm.tsx";
 import NavBar from "../NavBar/NavBar.tsx";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [activeTab, setActiveTab] = useState("1");
+  // const [activeTab, setActiveTab] = useState("1");
 
-  const toggle = (tab: string) => {
-    console.log(`Tab clicked: ${tab}`);
-    if (activeTab !== tab) setActiveTab(tab);
-  };
+  // const toggle = (tab: string) => {
+  //   console.log(`Tab clicked: ${tab}`);
+  //   if (activeTab !== tab) setActiveTab(tab);
+  // };
 
   const HeroBannerText = (
     <div className="col text-left mt-[10%] md:mt-[20%] mb-[20%] md:mb-[40%] text-white text-shadow-xl">
@@ -49,7 +52,7 @@ const Home = () => {
   );
 
   return (
-    <div className="container overflow-x-hidden">
+    <div className="overflow-x-hidden">
       <NavBar />
 
       <HeroBanner heroBannerText={HeroBannerText} />
@@ -59,35 +62,65 @@ const Home = () => {
       <TechUsed />
 
       <div
-        className="bg-desertBackGroundPattern py-10 bg-cover bg-center"
+        className="bg-black bg-cover bg-center"
         id="projects"
       >
         <div className="container mx-auto px-8">
-          <Nav tabs className="mb-5">
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === "1" })}
-                onClick={() => toggle("1")}
-              >
-                Web
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === "2" })}
-                onClick={() => toggle("2")}
-              >
-                Mobile-First
-              </NavLink>
-            </NavItem>
-          </Nav>
-          {projects.map((project) => (
-            <ProjectsWithTabs
-              project={project}
-              activeTab={activeTab}
-              key={project.id}
-            />
-          ))}
+          <div className="flex h-screen w-full justify-center pt-24 px-4">
+            <div className="w-full">
+              <TabGroup>
+                <TabList className="flex gap-4">
+                  {projects.map(({ id, name, type }) => (
+                    <Tab
+                      key={id}
+                      className="rounded-full py-1 px-3 text-sm/6 font-semibold text-white focus:outline-none data-[selected]:bg-white/10 data-[hover]:bg-white/5 data-[selected]:data-[hover]:bg-white/10 data-[focus]:outline-1 data-[focus]:outline-white"
+                    >
+                      {name} ({type})
+                    </Tab>
+                  ))}
+                </TabList>
+                <TabPanels className="mt-3">
+                  {projects.map(({ id, image, stack, description }) => (
+                    <TabPanel key={id} className="rounded-xl bg-white p-3">
+                      <div className="flex flex-wrap mb-4">
+                        <div className="w-full">
+                          <div className="card p-6">
+                            <div className="flex flex-wrap">
+                              <div className="hidden sm:block w-7/12">
+                                <img
+                                  src={image}
+                                  className="object-cover w-full"
+                                  alt="Project Example"
+                                />
+                              </div>
+
+                              <div className="w-full sm:w-5/12">
+                                <div className="p-4">
+                                  <p className="mt-2">
+                                    <span className="font-semibold">
+                                      Technology:
+                                    </span>{" "}
+                                    {stack}
+                                  </p>
+                                  <p className="mt-2">{description}</p>
+                                  <div className="text-center mt-4">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                      <Link to={`/`}>See Demo</Link>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br />
+                      </div>
+                    </TabPanel>
+                  ))}
+                </TabPanels>
+              </TabGroup>
+            </div>
+          </div>
         </div>
       </div>
       <ContactForm />

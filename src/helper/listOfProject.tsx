@@ -19,18 +19,6 @@ let Project = [
             problem:"I noticed that other detailing websites worked, but were outdated. Some sites were not mobile-friendly or had broken links. I wanted to produce a site that was sleek and functional.",
             approach: "I focused on making the site mobile-friendly, as I thought that most customers would look up a mobile service using their phones. To ensure that the site was mobile-friendly, I checked its responsiveness by changing the screen size using the DevTools. Additionally, I used Bootstrap to make the site dynamic."
           },
-          // {
-          //   id: 1,
-          //   name: "Cleaning.Unique",
-          //   image: "https://bit.ly/2VOgVbG",
-          //   description:
-          //     "A website were an AirBnB host can find  a reliable, local cleaner.",
-          //   stack: "React, Redux, HTML, CSS, C#, SQL",
-          //   project: null,
-          //   code: "https://github.com/cjara002/AirBnB.Unique",
-          //   video: null,
-          //   type: "web",
-          // },
           {
             id: 1,
             name: "Task Tracker",
@@ -47,19 +35,6 @@ let Project = [
             problem:"At the time, I did not have any backend skills or knowledge, so I had to figure out another way to store data. I also wanted the ability to sort my tasks, as some tasks had more urgency than others, and I needed a way to ensure that I completed the most urgent ones.",
             approach: "First, I looked into other ways to store data. Since this was going to be a client-side application, I decided to use localStorage. localStorage is a property that allows JavaScript sites and apps to save key-value pairs in a web browser with no expiration date. This means that the data stored in the browser will persist even after the browser window is closed."
           },
-          // {
-          //   id: 3,
-          //   name: "Imperio",
-          //   image: "https://bit.ly/3amXZpW",
-          //   description:
-          //     "A LMS that helps entrepreneurs with advice, insight and prowerful guidance.",
-          //   stack: "React, HTML, CSS, C#, SQL",
-          //   project: null,
-          //   code: null,
-          //   video:
-          //     "https://www.youtube.com/watch?v=nuJpoidFZRg&list=PLvzQZBo6Tz-s0wj61cuZW_ijhAAl--ir4",
-          //   type: "web",
-          // },
           {
             id: 3,
             name: "Topsin Maxed",
@@ -76,6 +51,22 @@ let Project = [
             goal: "I wanted an application that could keep track of macthes won/lost, host tournments, show what gear a player has, and find local tennis players.",
             problem:"I wanted to make a mobile app using React Native. I was able to get something together using React Native and Expo. However, I had no clue how I could push my app into the Apple or Google store.",
             approach: "I got some advice from a senior I worked with. He suggested I should focus on making a mobile-first website instead of an app. I switched my focus to building out the website using React and AWS."
+          },
+          {
+            id: 4,
+            name: "Chore-Quest",
+            // image: tennis,
+            description:
+              "Make chores fun by turning them into interactive quest for children",
+            stack: "React Native, Typescript, Tailwind, Supabase, SQL",
+            // project: urls.topspinMaxed,
+            // code: urls.topspinMaxedGithub,
+            video:
+              null,
+            type: "mobile",
+            // goal: "I wanted an application that could keep track of macthes won/lost, host tournments, show what gear a player has, and find local tennis players.",
+            // problem:"I wanted to make a mobile app using React Native. I was able to get something together using React Native and Expo. However, I had no clue how I could push my app into the Apple or Google store.",
+            // approach: "I got some advice from a senior I worked with. He suggested I should focus on making a mobile-first website instead of an app. I switched my focus to building out the website using React and AWS."
           },
 
 ]
