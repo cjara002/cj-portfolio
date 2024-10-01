@@ -47,7 +47,7 @@ const ContactForm = () => {
 
   return (
     <div
-      className="bg-cover bg-center py-8 bg-cactus"
+      className="bg-cover bg-center py-8 bg-alien"
       id="contact-me"
     >
       <div className="flex justify-center">
