@@ -34,7 +34,7 @@ const TechUsed: React.FC = () => {
 
   return (
     // <div className="min-h-screen">
-      <div className="techUsed bg-desertLandscapeAtNight bg-cover bg-center h-full relative pt-10 pb-10 px-4 sm:px-8 lg:px-12">
+      <div className="techUsed bg-desertLandscapeAtNight bg-cover bg-center h-full relative pt-10 pb-10 px-4 sm:px-8 lg:px-12" id="skills">
         <div className="container mx-auto">
           <h1 className="mb-5 text-4xl font-bold text-yellow-500">Skills</h1>
           <div className="flex items-center justify-center relative h-96 bg-blue-900 bg-opacity-50 rounded-2xl p-4">

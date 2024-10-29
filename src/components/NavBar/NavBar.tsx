@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import NavButton from "../Button/NavButton";
 import urls from "../../helper/Urls";
-import { Link } from "react-router-dom";
 import SocialMediaButton from "../Button/SocialMediaButton";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    // Handle scroll for navbar background
     const handleScroll = () => {
       const offset = window.scrollY;
       if (offset > 50) {
@@ -18,10 +19,34 @@ const NavBar = () => {
       }
     };
 
+  
+    const sections = document.querySelectorAll("div[id]");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50px 0px 0px 0px",
+      threshold: 0.6, // Adjust this threshold as needed
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    setActiveSection("home");
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
@@ -57,10 +82,13 @@ const NavBar = () => {
         >
           <ul className="flex flex-col lg:flex-row lg:space-x-4 items-center">
             <li>
-              <Link to="/" className="text-lg sm:text-sm text-white hover:text-yellow-500 transition duration-300 ease-in-out">
-                <i className="fa-1x mr-2 fas fa-home hover:text-yellow-500 transition duration-300 ease-in-out"></i>
-                Home
-              </Link>
+              <NavButton
+                href="#home"
+                textSize="text-lg sm:text-sm text-white"
+                text="Home"
+                iconClass="fa-1x mr-2 fas fa-home"
+                isActive={activeSection === "home"}
+              />
             </li>
             <li>
               <NavButton
@@ -68,6 +96,16 @@ const NavBar = () => {
                 textSize="text-lg sm:text-sm text-white"
                 text="About Me"
                 iconClass="fa-1x mr-2 fas fa-laptop"
+                isActive={activeSection === "about-me"}
+              />
+            </li>
+            <li>
+              <NavButton
+                href="#skills"
+                textSize="text-lg sm:text-sm text-white"
+                text="Skills"
+                iconClass="fa-1x mr-2 fas fa-gear"
+                isActive={activeSection === "skills"}
               />
             </li>
             <li>
@@ -77,6 +115,7 @@ const NavBar = () => {
                 text="Web/Mobile App"
                 title="Web/Mobile App"
                 iconClass="fa-1x mr-2 fas fa-briefcase"
+                isActive={activeSection === "projects"}
               />
             </li>
             <li>
@@ -86,6 +125,7 @@ const NavBar = () => {
                 text="Let's Connect"
                 title="Let's Connect"
                 iconClass="fa-1x mr-2 fas fa-envelope-open-text"
+                isActive={activeSection === "contact-me"}
               />
             </li>
           </ul>

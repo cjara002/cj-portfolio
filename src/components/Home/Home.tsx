@@ -38,7 +38,7 @@ const Home = () => {
   );
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden" id="home">
       <NavBar />
 
       <HeroBanner heroBannerText={HeroBannerText} />
@@ -49,9 +49,7 @@ const Home = () => {
 
       <Projects />
 
-      {/* <div className="bg-black"> */}
-        <ContactForm />
-      {/* </div> */}
+      <ContactForm />
     </div>
   );
 };
