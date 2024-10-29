@@ -1,6 +1,3 @@
-// import React from 'react';
-
-// const SocialMediaButton: React.FC = (props: any) => {
 const SocialMediaButton = (props: any) => {
   return (
       <a

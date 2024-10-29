@@ -25,10 +25,10 @@ const Projects = () => {
                       <div className="w-full">
                         <div className="card p-6">
                           <div className="flex flex-wrap">
-                            <div className="hidden sm:block w-7/12">
+                            <div className="hidden sm:block w-7/12 h-64 overflow-hidden">
                               <img
                                 src={image}
-                                className="object-contain w-full h-full"
+                                className="object-cover w-full h-full"
                                 alt="Project Example"
                               />
                             </div>
