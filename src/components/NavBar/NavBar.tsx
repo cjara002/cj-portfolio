@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import NavButton from "../Button/NavButton";
 import urls from "../../helper/Urls";
 import SocialMediaButton from "../Button/SocialMediaButton";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,6 @@ const NavBar = () => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    // Handle scroll for navbar background
     const handleScroll = () => {
       const offset = window.scrollY;
       if (offset > 50) {
@@ -19,13 +19,12 @@ const NavBar = () => {
       }
     };
 
-  
     const sections = document.querySelectorAll("div[id]");
 
     const observerOptions = {
       root: null,
       rootMargin: "-50px 0px 0px 0px",
-      threshold: 0.6, // Adjust this threshold as needed
+      threshold: 0.6,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -51,34 +50,42 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-20 transition-all duration-300 h-16 text-white overflow-x-hidden ${
         scrolled ? "bg-black" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex justify-between items-center h-full px-4 overflow-x-hidden">
-          <div className="flex h-8 w-32">
-            <SocialMediaButton
-              href={urls.github}
-              iconClass="fab fa-github"
-              hoverWithColor={"hover:bg-black"}
-            />
-            <SocialMediaButton
-              href={urls.linkedin}
-              iconClass="fab fa-linkedin"
-              hoverWithColor={"hover:bg-[#0a66c2]"}
-            />
-          </div>
+        <div className="flex h-8 w-32">
+          <SocialMediaButton
+            href={urls.github}
+            iconClass="fab fa-github"
+            hoverWithColor={"hover:bg-black"}
+          />
+          <SocialMediaButton
+            href={urls.linkedin}
+            iconClass="fab fa-linkedin"
+            hoverWithColor={"hover:bg-[#0a66c2]"}
+          />
+        </div>
 
         <button
           className="text-white lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'}`}></i>
+          <i className={`fas ${isOpen ? "fa-times" : "fa-bars"}`}></i>
         </button>
 
-        <div
-          className={`z-20 lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 space-y-2 lg:space-y-0 ${isOpen ? "block" : "hidden"} lg:block`}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+          className={`z-20 lg:flex flex-col lg:flex-row lg:items-center lg:space-x-4 space-y-2 lg:space-y-0 ${
+            isOpen ? "block" : "hidden"
+          } lg:block`}
         >
           <ul className="flex flex-col lg:flex-row lg:space-x-4 items-center">
             <li>
@@ -129,9 +136,9 @@ const NavBar = () => {
               />
             </li>
           </ul>
-        </div>
+        </motion.div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

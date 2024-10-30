@@ -4,21 +4,35 @@ import TechUsed from "../TechUsed/TechUsed.tsx";
 import Projects from "../Projects/Projects.tsx";
 import ContactForm from "../Contact/ContactForm.tsx";
 import NavBar from "../NavBar/NavBar.tsx";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const HeroBannerText = (
     <div className="col text-left mt-[10%] md:mt-[20%] mb-[20%] md:mb-[40%] text-white text-shadow-xl">
       <div className="inline-block align-top text-[16px] leading-[28px]">
-        <h3 className="font-montserrat text-[2rem] sm:text-[1rem] md:text-[1.5rem] lg:text-[2rem] uppercase animate-fadein text-shadow-lg">
+        <motion.h3
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="font-montserrat text-[2rem] sm:text-[1rem] md:text-[1.5rem] lg:text-[2rem] uppercase animate-fadein text-shadow-lg"
+        >
           Explore My Work
-        </h3>
+        </motion.h3>
       </div>
-      <h1 className="font-montserrat text-[5rem] sm:text-[2.5rem] md:text-[4.5rem] lg:text-[6.5rem] animate-fadein">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 1 }}
+        className="font-montserrat text-[5rem] sm:text-[2.5rem] md:text-[4.5rem] lg:text-[6.5rem] animate-fadein"
+      >
         Crafting Code with Passion
-      </h1>
+      </motion.h1>
       <div className="mt-6 flex justify-center">
-        <a
+        <motion.a
           href="#projects"
+          whileHover={{ scale: 1.1, backgroundColor: "#FFCC00" }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300 }}
           className="flex text-black justify-center gap-2 items-center mx-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group hover:bg-yellow-500 transition duration-300 ease-in-out"
         >
           See Work
@@ -32,7 +46,7 @@ const Home = () => {
               className="fill-gray-800 group-hover:fill-gray-800"
             />
           </svg>
-        </a>
+        </motion.a>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import familyPhoto from "../../assets/img/fatherAndSon.png";
 import pdf from "../../helper/CarlosJaraResume2024v.5.pdf";
+import { motion } from "framer-motion";
 
 const AboutMe: React.FC = () => {
 
@@ -10,7 +11,12 @@ const AboutMe: React.FC = () => {
     <div className="pt-10 pb-10 bg-darkLizards text-gray-400" id="about-me">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex flex-wrap">
-          <div className="lg:w-1/2 sm:w-full mb-8">
+        <motion.div
+            className="lg:w-1/2 sm:w-full mb-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
             <h1 className="mb-3 text-4xl text-yellow-500 font-bold">About Me</h1>
             <p className="text-white text-lg mb-6">
               <span className="font-bold text-yellow-500 text-xl">I</span> am a
@@ -34,7 +40,7 @@ const AboutMe: React.FC = () => {
               and React Native.
             </p>
             <div className="w-full lg:w-4/5 overflow-hidden flex justify-center">
-              <a
+            <a
                 href={pdf}
                 target="/"
                 download
@@ -57,22 +63,29 @@ const AboutMe: React.FC = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:w-1/2 hidden sm:block relative border-l border-white pl-8">
-            <img
+          <motion.div
+            className="lg:w-1/2 hidden sm:block relative border-l border-white pl-8"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+              <motion.img
               src={familyPhoto}
               alt="Family Photo"
-              className="w-1/2 h-full rounded-xl mx-auto transition-transform duration-300 transform hover:scale-105"
+              className="w-1/2 h-full rounded-xl mx-auto"
               style={{
                 boxShadow: hovered
-                  ? '0 10px 15px rgba(255, 255, 255, 0.6)'
-                  : 'none',
+                  ? "0 10px 15px rgba(255, 255, 255, 0.6)"
+                  : "none",
               }}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
