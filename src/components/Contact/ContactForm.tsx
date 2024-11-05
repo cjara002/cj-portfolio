@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 
 interface FormState {
   firstName: string;
@@ -18,6 +20,11 @@ const ContactForm = () => {
     email: "",
     phone: "",
     message: "",
+  });
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3, // triggers animation when 30% of component is visible
   });
 
   const handleSubmit = (e: FormEvent) => {
@@ -41,23 +48,52 @@ const ContactForm = () => {
       });
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } },
+  };
+  
+  const formVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.5, delay: 0.4 } },
   };
 
   return (
     <div
       className="bg-cover bg-center py-8 bg-alien"
       id="contact-me"
+      ref={ref}
     >
-      <div className="flex justify-center">
+      <motion.div
+        className="flex justify-center"
+        variants={containerVariants} 
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+      >
         <div className="bg-black bg-opacity-70 p-6 rounded-lg shadow-lg w-full max-w-2xl">
-          <h1 className="text-white text-2xl font-bold mb-4">Request a free quote</h1>
+          <h1 className="text-white text-2xl font-bold mb-4">
+            Request a free quote
+          </h1>
           <p className="text-white mb-4">
-            If you need a website built, please feel free to contact me. I am always interested in
-            helping out a fellow developer as well. <br /> Hablo Español.
+            If you need a website built, please feel free to contact me. I am
+            always interested in helping out a fellow developer as well. <br />{" "}
+            Hablo Español.
           </p>
-          <form method="POST" name="contact" onSubmit={handleSubmit} data-netlify="true">
+          <motion.form
+            method="POST"
+            name="contact"
+            onSubmit={handleSubmit}
+            data-netlify="true"
+            variants={formVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
             <input type="hidden" name="form-name" value="contact" />
             <div className="mb-4">
               <label className="block text-white mb-2">Name</label>
@@ -113,9 +149,9 @@ const ContactForm = () => {
             >
               Send Message
             </button>
-          </form>
+          </motion.form>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

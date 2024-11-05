@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import experience from "../../helper/Technology.tsx";
+import { useInView } from "react-intersection-observer";
 
 interface Tech {
   tech: string;
   image: string;
 }
 
+const slideVariants = {
+  hidden: { opacity: 0, y: 200 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  exit: { opacity: 0, y: -200, transition: { duration: 0.8 } },
+};
+
 const TechUsed: React.FC = () => {
   const [techUsed, setTechUsed] = useState<Tech[]>([]);
   const [current, setCurrent] = useState(0);
   const sixSeconds = 6000;
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
 
   useEffect(() => {
     setTechUsed(experience);
@@ -21,7 +33,7 @@ const TechUsed: React.FC = () => {
       setCurrent((prev) => (prev === techUsed.length - 1 ? 0 : prev + 1));
     }, sixSeconds);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); 
   }, [techUsed.length]);
 
   const nextImage = () => {
@@ -33,7 +45,7 @@ const TechUsed: React.FC = () => {
   };
 
   return (
-      <div className="techUsed bg-desertLandscapeAtNight bg-cover bg-center h-full relative pt-10 pb-10 px-4 sm:px-8 lg:px-12" id="skills">
+      <div className="techUsed bg-desertLandscapeAtNight bg-cover bg-center h-full relative pt-10 pb-10 px-4 sm:px-8 lg:px-12" id="skills"  ref={ref}>
         <div className="container mx-auto">
           <h1 className="mb-5 text-4xl font-bold text-yellow-500">Skills</h1>
           <div className="flex items-center justify-center relative h-96 bg-blue-900 bg-opacity-50 rounded-2xl p-4">
@@ -56,14 +68,14 @@ const TechUsed: React.FC = () => {
 
             <div className="w-96 h-full relative">
               <AnimatePresence mode="wait">
-                <motion.div
-                  key={techUsed[current]?.tech}
-                  initial={{ opacity: 0, y: 200 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -200 }}
-                  transition={{ duration: 0.8 }}
-                  className="absolute w-full h-full flex flex-col items-center justify-center"
-                >
+              <motion.div
+                key={techUsed[current]?.tech}
+                className="absolute w-full h-full flex flex-col items-center justify-center"
+                variants={slideVariants}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                exit="exit"
+              >
                   <img
                     className="mb-2 w-24 h-24 sm:w-48 sm:h-48 rounded-full border-4 border-orange-500 shadow-lg"
                     src={techUsed[current]?.image}

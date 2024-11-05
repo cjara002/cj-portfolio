@@ -2,20 +2,47 @@ import React, { useState } from "react";
 import familyPhoto from "../../assets/img/fatherAndSon.png";
 import pdf from "../../helper/CarlosJaraResume2024v.5.pdf";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const textVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
+
+const hoverVariants = {
+  hover: { scale: 1.05, transition: { duration: 0.3 } },
+};
 
 const AboutMe: React.FC = () => {
 
   const [hovered, setHovered] = useState(false);
+
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  // Use InView for image section
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
   
   return (
     <div className="pt-10 pb-10 bg-darkLizards text-gray-400" id="about-me">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex flex-wrap">
         <motion.div
+            ref={textRef} // Attach ref for inView detection
             className="lg:w-1/2 sm:w-full mb-8"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            variants={textVariants}
+            initial="hidden"
+            animate={textInView ? "visible" : "hidden"} // Trigger animation based on inView
           >
             <h1 className="mb-3 text-4xl text-yellow-500 font-bold">About Me</h1>
             <p className="text-white text-lg mb-6">
@@ -66,12 +93,13 @@ const AboutMe: React.FC = () => {
           </motion.div>
 
           <motion.div
+            ref={imageRef} // Attach ref for inView detection
             className="lg:w-1/2 hidden sm:block relative border-l border-white pl-8"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            variants={imageVariants}
+            initial="hidden"
+            animate={imageInView ? "visible" : "hidden"} // Trigger animation based on inView
           >
-              <motion.img
+               <motion.img
               src={familyPhoto}
               alt="Family Photo"
               className="w-1/2 h-full rounded-xl mx-auto"
@@ -82,8 +110,8 @@ const AboutMe: React.FC = () => {
               }}
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              variants={hoverVariants} // Hover effect using hover variants
+              whileHover="hover"
             />
           </motion.div>
         </div>
