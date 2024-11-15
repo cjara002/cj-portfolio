@@ -1,5 +1,5 @@
-import jsDetailing from "../assets/img/jsMobileDetailing.PNG";
-import tennis from "../assets/img/tennisHomePage.PNG";
+import jsDetailing from "../assets/img/jsMobileDetailing.png";
+import tennis from "../assets/img/tennisHomePage.png";
 import choreQuest from "../assets/img/ChoreQuestSplashPage2.jpg"
 import urls  from "./Urls";
 
@@ -20,22 +20,6 @@ let Project = [
             problem:"I noticed that other detailing websites worked, but were outdated. Some sites were not mobile-friendly or had broken links. I wanted to produce a site that was sleek and functional.",
             approach: "I focused on making the site mobile-friendly, as I thought that most customers would look up a mobile service using their phones. To ensure that the site was mobile-friendly, I checked its responsiveness by changing the screen size using the DevTools. Additionally, I used Bootstrap to make the site dynamic."
           },
-          // {
-          //   id: 1,
-          //   name: "Task Tracker",
-          //   image: "https://bit.ly/2KmRTeA",
-          //   imageForDetails: "https://bit.ly/3Z5hLjr",
-          //   description:
-          //     "Keep track of your tasks for the day. You're one task away from greatness.",
-          //   stack: "React, HTML, CSS",
-          //   project: urls.taskTracker,
-          //   code: urls.taskTrackerGithub,
-          //   video: urls.taskTrackerVideoPlaylist,
-          //   type: "web",
-          //   goal: "I wanted an application that could help me overcome my choice paralysis. I was already writing down my tasks for the day, so I created this application. I wanted to be more productive during the day and stay motivated.",
-          //   problem:"At the time, I did not have any backend skills or knowledge, so I had to figure out another way to store data. I also wanted the ability to sort my tasks, as some tasks had more urgency than others, and I needed a way to ensure that I completed the most urgent ones.",
-          //   approach: "First, I looked into other ways to store data. Since this was going to be a client-side application, I decided to use localStorage. localStorage is a property that allows JavaScript sites and apps to save key-value pairs in a web browser with no expiration date. This means that the data stored in the browser will persist even after the browser window is closed."
-          // },
           {
             id: 1,
             name: "Topsin Maxed",
