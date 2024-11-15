@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+## My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I am showcasing my skills as a developer.<br />
+Please reach out to me for any questions, recommendations, or if you want to work together.
 
-Currently, two official plugins are available:
+### Built Using React and Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I live and breathe React!<br />
+It is my bread and butter. I am open to other frameworks though.
+I moved away from CRA to Vite. 
+Vite seems more lightweight.
 
-## Expanding the ESLint configuration
+Challenge me to use Angular or Vue!<br />
+You will be suprised.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Features
 
-- Configure the top-level `parserOptions` property like this:
+- Fully responsive design for all devices
+- Interactive animations powered by Framer Motion
+- Clean and minimalistic user interface
+- Showcase projects and resume
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Technologies Used
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Frontend:** React, Vite, Tailwind CSS, Framer Motion
+- **Version Control:** Git and GitHub
+- **Deployment:** Netlify
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Dependencies
+- fortawesome/fontawesome-free: Used for adding icons throughout the UI.
+- headlessui/react: Makes the UI in my projects section look sleek and modern.
+- framer-motion: Adds smooth animations to the UI.
+- react: The main front-end framework for building this portfolio.
+- react-dom: Provides DOM-specific methods for React.
+- react-intersection-observer: Enables efficient section highlighting when scrolling.
+- react-router-dom: Initially used for creating multiple pages, but I decided to simplify and use a SPA approach.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Contact Me
+
+I'd love to hear from you!  
+- LinkedIn: [Carlos J. Jara](https://www.linkedin.com/in/carlos-j-jara)    
+- Email: [cjjara002@gmail.com](mailto:cjjara002@gmail.com)
