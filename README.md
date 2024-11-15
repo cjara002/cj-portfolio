@@ -6,7 +6,7 @@ Please reach out to me for any questions, recommendations, or if you want to wor
 ### Built Using React and Vite
 
 I live and breathe React!<br />
-It is my bread and butter. I am open to other frameworks though.
+It is my bread and butter. I am open to other frameworks though.<br />
 I moved away from CRA to Vite. 
 Vite seems more lightweight.
 
@@ -24,7 +24,8 @@ You will be suprised.
 
 - **Frontend:** React, Vite, Tailwind CSS, Framer Motion
 - **Version Control:** Git and GitHub
-- **Deployment:** Netlify
+- **Deployment:** Netlify 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5090ef34-be49-4f7e-b1d2-816850b5a092/deploy-status)](https://app.netlify.com/sites/carlosjaraportfolio/deploys)
 
 ### Dependencies
 - fortawesome/fontawesome-free: Used for adding icons throughout the UI.
@@ -38,5 +39,5 @@ You will be suprised.
 ### Contact Me
 
 I'd love to hear from you!  
-- LinkedIn: [Carlos J. Jara](https://www.linkedin.com/in/carlos-j-jara)    
-- Email: [cjjara002@gmail.com](mailto:cjjara002@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/carlos-j-jara)    
+- [cjjara002@gmail.com](mailto:cjjara002@gmail.com)
